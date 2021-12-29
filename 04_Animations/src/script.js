@@ -39,14 +39,25 @@ renderer.render(scene, camera)
 
 gsap.to(mesh.position, {
     duration: 1,
+    delay: 0,
+    x: -2
+})
+gsap.to(mesh.position, {
+    duration: 1,
     delay: 1,
-    x: 2
+    x: 0
 })
 gsap.to(mesh.position, {
     duration: 1,
     delay: 2,
+    x: 2
+})
+gsap.to(mesh.position, {
+    duration: 1,
+    delay: 3,
     x: 0
 })
+
 
 // Animations
 const tick = () =>
