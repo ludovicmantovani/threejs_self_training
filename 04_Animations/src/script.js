@@ -30,3 +30,36 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
+
+//let time = Date.now()
+
+//Clock
+const clock = new THREE.Clock();
+
+// Animations
+const tick = () =>
+{
+    // Time
+    /*const currentTime = Date.now()
+    const deltaTime = currentTime - time
+    time = currentTime
+
+    console.log(deltaTime)*/
+
+    const elapsedTime = clock.getElapsedTime()
+
+    // Update objects
+    //mesh.rotation.y += 0.001 * deltaTime
+    //mesh.rotation.y = elapsedTime * Math.PI * 2 // One revolution per second
+    /*mesh.position.y = Math.sin(elapsedTime)
+    mesh.position.x = Math.cos(elapsedTime)*/
+    camera.position.y = Math.sin(elapsedTime)
+    camera.position.x = Math.cos(elapsedTime)
+    camera.lookAt(mesh.position)
+
+    // Render
+    renderer.render(scene, camera)
+    window.requestAnimationFrame(tick)
+}
+
+tick()
