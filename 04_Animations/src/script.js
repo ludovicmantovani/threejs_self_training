@@ -1,5 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
+import gsap from 'gsap'
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -34,7 +35,18 @@ renderer.render(scene, camera)
 //let time = Date.now()
 
 //Clock
-const clock = new THREE.Clock();
+//const clock = new THREE.Clock();
+
+gsap.to(mesh.position, {
+    duration: 1,
+    delay: 1,
+    x: 2
+})
+gsap.to(mesh.position, {
+    duration: 1,
+    delay: 2,
+    x: 0
+})
 
 // Animations
 const tick = () =>
@@ -46,16 +58,16 @@ const tick = () =>
 
     console.log(deltaTime)*/
 
-    const elapsedTime = clock.getElapsedTime()
+    //const elapsedTime = clock.getElapsedTime()
 
     // Update objects
     //mesh.rotation.y += 0.001 * deltaTime
     //mesh.rotation.y = elapsedTime * Math.PI * 2 // One revolution per second
     /*mesh.position.y = Math.sin(elapsedTime)
     mesh.position.x = Math.cos(elapsedTime)*/
-    camera.position.y = Math.sin(elapsedTime)
+    /*camera.position.y = Math.sin(elapsedTime)
     camera.position.x = Math.cos(elapsedTime)
-    camera.lookAt(mesh.position)
+    camera.lookAt(mesh.position)*/
 
     // Render
     renderer.render(scene, camera)
